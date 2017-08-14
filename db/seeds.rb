@@ -16,5 +16,5 @@ User.create(email: "karting3000@gmail.com", password: "123456", is_supplier: tru
 Activity.create(title: "Karting Prestige", description: "Jean-Michel vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, user_id: 2, address: "Route des Mayons", zip_code: 83340, city: "Le Luc")
 
 # Deux pricings associés:
-Pricing.create
-Pricing.create
+Pricing.create(description: "Course de 30min", amount: 40, price_type: "par personne", activity_id: 1)
+Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: 1)
