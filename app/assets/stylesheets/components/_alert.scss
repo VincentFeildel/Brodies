@@ -6,6 +6,10 @@
   margin: 0;
   text-align: center;
   color: white;
+  display: none;
+}
+.notice {
+  display:none;
 }
 .alert-info {
   background: $green;
