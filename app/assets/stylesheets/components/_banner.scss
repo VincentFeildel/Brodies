@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  // padding: 20px;
 }
 .banner h1 {
   font-size: 50px;
@@ -22,4 +23,16 @@
 }
 .form-control {
   padding: 20px;
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+#btn-submit {
+  border-radius: 3px;
+}
+.form-inline {
+  padding: 0px 30px;
+}
+#btn-submit {
+  padding: 7px 15px;
 }
