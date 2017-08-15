@@ -1,10 +1,12 @@
 class ActivitiesController < ApplicationController
 
   def index
-    acty_array = Activity.all
-    @activities = acty_array.sample(4)
+    @activities = Activity.all
+    # @activities =  Activity.where("category = ?", params[:category])
   end
 
+  def show
+  end
 
 end
 
