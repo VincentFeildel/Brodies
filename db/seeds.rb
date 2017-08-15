@@ -7,14 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # utilisateur du site
-User.create(email: "vincent.feildel@gmail.com", password: "123456", is_supplier: false)
+# User.create(email: "vincent.feildel@gmail.com", password: "123456", is_supplier: false)
 
-# fournisseur d'activité
-User.create(email: "karting3000@gmail.com", password: "123456", is_supplier: true)
+# # fournisseur d'activité
+# User.create(email: "karting3000@gmail.com", password: "123456", is_supplier: true)
 
-# Activité de Karting
-Activity.create(title: "Karting Prestige", description: "Jean-Michel vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, user_id: 2, address: "Route des Mayons", zip_code: 83340, city: "Le Luc")
+# # Activité de Karting
+# Activity.create(title: "Karting Prestige", description: "Jean-Michel vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, user_id: 2, address: "Route des Mayons", zip_code: 83340, city: "Le Luc")
 
-# Deux pricings associés:
-Pricing.create(description: "Course de 30min", amount: 40, price_type: "par personne", activity_id: 1)
-Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: 1)
+# # Deux pricings associés:
+# Pricing.create(description: "Course de 30min", amount: 40, price_type: "par personne", activity_id: 1)
+# Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: 1)
+
+
+10.times do
+  user = User.create(email: Faker::Internet.email, password: "123456", is_supplier: false)
+  supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+  g_o_t = Faker::GameOfThrones.character
+  address = Faker::Address.new
+  activity = Activity.new(title: "Karting #{g_o_t}", description: "#{g_o_t} vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city)
+  activity.user = supplier
+  activity.save
+end
