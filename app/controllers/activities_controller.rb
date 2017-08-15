@@ -17,4 +17,3 @@ before_action :set_activity, only: [:show]
   end
 
 end
-

@@ -20,12 +20,79 @@
 # Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: 1)
 
 
-10.times do
-  user = User.create(email: Faker::Internet.email, password: "123456", is_supplier: false)
-  supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
-  g_o_t = Faker::GameOfThrones.character
-  address = Faker::Address.new
-  activity = Activity.new(title: "Karting #{g_o_t}", description: "#{g_o_t} vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city)
-  activity.user = supplier
-  activity.save
-end
+# 10.times do
+#   user = User.create(email: Faker::Internet.email, password: "123456", is_supplier: false)
+#   supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+#   g_o_t = Faker::GameOfThrones.character
+#   address = Faker::Address.new
+#   activity = Activity.new(title: "Karting #{g_o_t}", description: "#{g_o_t} vous propose la course de votre vie", is_outdoor: true, category: "Karting", capacity: 8, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city)
+#   activity.photo_url = 'http://www.kartcom.com/com_kart_asset/9174/LM-Karting.jpg'
+#   activity.user = supplier
+#   activity.save
+# end
+
+# ACTIVITE--------------------------------------------------------------------
+supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+
+a = Activity.new(is_outdoor: true, capacity: 10)
+a.user = supplier
+a.title = 'Presting Karting'
+a.category = 'Karting'
+a.address = 'Route des Mayons'
+a.city = 'Le Luc'
+a.zip_code = '83340'
+a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
+a.description = "UN ENVIRONNEMENT EXCEPTIONNEL
+
+En Provence, en pleine nature, jouxtant le circuit automobile de F1, vous bénéficiez d'un ensoleillement exeptionnel (+ de 300 jours par an) et d'une température idéale (moyenne annuelle 21°).
+
+Une situation de rêve au coeur de la Côte d'Azur, nous sommes à 30 km de Saint Tropez, 60 km de Cannes, 120 km de Monaco et 100 km de Nice.
+
+
+UNE INFRASTRUCTURE HIGH - TECH
+
+
+Chronométrage électronique et individuel tour après tour, éclairage de la piste pour les épreuves de nuit (courses de 24 heures), atelier de révision, magasin de pièces détachées, entretien, réparation, salle de direction de courses, salle de presse...
+
+Tout est sur place à votre service."
+a.save
+Pricing.create(description: "Course de 30min", amount: 40, price_type: "par personne", activity_id: a.id)
+Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: a.id)
+
+# ACTIVITE--------------------------------------------------------------------
+supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+
+a = Activity.new(is_outdoor: true, capacity: 10)
+a.user = supplier
+a.title = 'Parachute Paris'
+a.category = 'Saut en parachute'
+a.address = '11 Passage Desgrais'
+a.city = 'Paris'
+a.zip_code = '75019'
+a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
+a.description = "15 minutes de briefing pour vous préparer au grand saut.
+De 10 à 25 minutes de montée en avion, rivé à votre moniteur dans un parachute tandem.
+Plogeon dans le ciel : une gigantesque chute libre à 200 km/h, sensations indescriptibles !
+A 1500 mètres, ouverture du parachute, le silence des airs... De 5 à 12 minutes de vol, parachute ouvert."
+a.save
+Pricing.create(description: "Saut initiation tandem", amount: 40, price_type: "par personne", activity_id: a.id)
+Pricing.create(description: "Saut pro", amount: 70, price_type: "par personne", activity_id: a.id)
+
+# ACTIVITE--------------------------------------------------------------------
+supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+
+a = Activity.new(is_outdoor: true, capacity: 10)
+a.user = supplier
+a.title = 'Kayak 3000'
+a.category = 'Kayak'
+a.address = '11 Passage Desgrais'
+a.city = 'Paris'
+a.zip_code = '75019'
+a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
+a.description = "15 minutes de briefing pour vous préparer au grand saut.
+De 10 à 25 minutes de montée en avion, rivé à votre moniteur dans un parachute tandem.
+Plogeon dans le ciel : une gigantesque chute libre à 200 km/h, sensations indescriptibles !
+A 1500 mètres, ouverture du parachute, le silence des airs... De 5 à 12 minutes de vol, parachute ouvert."
+a.save
+Pricing.create(description: "Saut initiation tandem", amount: 40, price_type: "par personne", activity_id: a.id)
+Pricing.create(description: "Saut pro", amount: 70, price_type: "par personne", activity_id: a.id)
