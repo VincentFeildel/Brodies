@@ -1,0 +1,29 @@
+<div class="container">
+<h2><%= @activity.title %></h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= cl_image_tag("oidaitaakoadbd6r8qwr.jpg", width: 400, height: 300, crop: :fill) %>
+    <div class="col-xs-8">
+      <h2>Prix moyen</h2>
+      <p><%= @activity.pricings.first.amount %> euros</p>
+      <p><%=  @activity.category%></p>
+      <p>
+        <%= @activity.is_outdoor ? "outdoor" : "indoor" %>
+      </p>
+      <div class="btn btn-primary">
+        Réserver
+      </div>
+      <div id="map" style="height: 300px"></div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <p><%= @activity.description %></p>
+    <p>Put map here</p>
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
