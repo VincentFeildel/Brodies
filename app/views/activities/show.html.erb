@@ -1,35 +1,60 @@
 <div class="container">
-<h2><%= @activity.title %></h2>
-</div>
-
-<div class="container">
   <div class="row">
-    <div class="col-xs-8">
-      <% if @activity.photo? %>
-      <%= cl_image_tag @activity.photo.path, width: 600, height: 300, crop: :fill %>
-      <% end %>
+    <div class="title-activity">
+      <h2><%= @activity.title %></h2>
     </div>
-    <div class="col-xs-4">
-      <h2>Prix moyen</h2>
-      <p><%= @activity.pricings.first.amount %> euros</p>
-      <p><%=  @activity.category%></p>
-      <p>
-        <%= @activity.is_outdoor ? "outdoor" : "indoor" %>
-      </p>
-      <div class="btn btn-primary">
-        <%= link_to "Réserver", new_activity_booking_path(@activity) %>
+    <div class="main-bloc">
+      <!-- titre -->
+      <!-- photo -->
+      <div class="photos col-md-6">
+        <% if @activity.photo? %>
+        <%= cl_image_tag @activity.photo.path, height: 320, crop: :fill%>
+        <% end %>
+      </div>
+      <div class="price-block col-md-6">
+      <div class="price-details col-md-6 col-md-offset-4">
+      <div class="price-title">
+        <h2>Prix moyen</h2>
+      </div>
+        <li><%= @activity.pricings.first.amount %> euros</li>
+        <li><%=  @activity.category%></li>
+        <li>
+          <%= @activity.is_outdoor ? "outdoor" : "indoor" %>
+        </li>
+        <div class="btn btn-primary" id="book">
+          <%= link_to "Réserver", new_activity_booking_path(@activity) %>
+        </div>
+      </div>
+        <!-- price -->
+      </div>
+    </div>
+    <div class="second-bloc">
+      <!-- description -->
+      <div class="description col-md-8">
+        <p><%= @activity.description %></p>
+      </div>
+      <div class="col-md-4">
+        <div id="map-show" style="height: 300px"></div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-8">
-      <p><%= @activity.description %></p>
-    </div>
-    <div class="col-xs-4">
-      <div id="map" style="height: 300px"></div>
-    </div>
-  </div>
-
-  <!-- Button trigger modal -->
-
-
+</div>
+<!-- MAP -->
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map-show' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
+<% end %>
+<!-- Button trigger modal -->
