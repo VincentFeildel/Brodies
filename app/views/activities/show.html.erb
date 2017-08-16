@@ -17,7 +17,7 @@
         <%= @activity.is_outdoor ? "outdoor" : "indoor" %>
       </p>
       <div class="btn btn-primary">
-        Réserver
+        <%= link_to "Réserver", new_activity_booking_path(@activity) %>
       </div>
     </div>
   </div>
@@ -30,5 +30,6 @@
     </div>
   </div>
 
-</div>
+  <!-- Button trigger modal -->
+
 
