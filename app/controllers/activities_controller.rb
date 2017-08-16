@@ -6,9 +6,9 @@ before_action :set_activity, only: [:show]
 
   def index
     # @activities = Activity.all
-    @activities_searched =  Activity.where("category = ?", params[:category])
+    @activities =  Activity.where("category = ?", params[:category])
     @activities_town =  Activity.where("city = ?", params[:city])
-    @activities = Activity.where.not(latitude: nil, longitude: nil)
+    # @activities = Activity.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
       marker.lat activity.latitude
       marker.lng activity.longitude
