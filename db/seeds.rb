@@ -41,7 +41,7 @@ a.category = 'Karting'
 a.address = 'Route des Mayons'
 a.city = 'Le Luc'
 a.zip_code = '83340'
-a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
+a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502869337/dxzxdnppuwlejd3nmfdm.jpg'
 a.description = "UN ENVIRONNEMENT EXCEPTIONNEL
 
 En Provence, en pleine nature, jouxtant le circuit automobile de F1, vous bénéficiez d'un ensoleillement exeptionnel (+ de 300 jours par an) et d'une température idéale (moyenne annuelle 21°).
@@ -69,7 +69,7 @@ a.category = 'Saut en parachute'
 a.address = '11 Passage Desgrais'
 a.city = 'Paris'
 a.zip_code = '75019'
-a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
+a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502871122/ws_Parachute_Jump_1440x900_arnhtu.jpg'
 a.description = "15 minutes de briefing pour vous préparer au grand saut.
 De 10 à 25 minutes de montée en avion, rivé à votre moniteur dans un parachute tandem.
 Plogeon dans le ciel : une gigantesque chute libre à 200 km/h, sensations indescriptibles !
@@ -85,14 +85,17 @@ a = Activity.new(is_outdoor: true, capacity: 10)
 a.user = supplier
 a.title = 'Kayak 3000'
 a.category = 'Kayak'
-a.address = '11 Passage Desgrais'
-a.city = 'Paris'
-a.zip_code = '75019'
-a.photo_url = 'http://www.kartcom.com/com_kart_asset/1120/MRT-MGT.jpg'
-a.description = "15 minutes de briefing pour vous préparer au grand saut.
-De 10 à 25 minutes de montée en avion, rivé à votre moniteur dans un parachute tandem.
-Plogeon dans le ciel : une gigantesque chute libre à 200 km/h, sensations indescriptibles !
-A 1500 mètres, ouverture du parachute, le silence des airs... De 5 à 12 minutes de vol, parachute ouvert."
+a.address = 'Moulin de Douves, Route de Noisiel'
+a.city = 'Torcy'
+a.zip_code = '77200 '
+a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502869785/kayak_uqknvx.jpg'
+a.description = "Découverte des Gorges du Tarn, classées Grand Site de France
+Une aventure accessible a tous : seul, en famille, ou entre amis !
+Bivouacs inoubliables sous tente au bord du Tarn
+Visite des différents villages le long de la rivière
+Découverte du patrimoine local
+Canoë de forme traditionnelle OLd Town
+Maîtrise des techniques de navigation en canoë"
 a.save
 Pricing.create(description: "Saut initiation tandem", amount: 40, price_type: "par personne", activity_id: a.id)
 Pricing.create(description: "Saut pro", amount: 70, price_type: "par personne", activity_id: a.id)
