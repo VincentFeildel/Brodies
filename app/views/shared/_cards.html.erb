@@ -1,35 +1,37 @@
 <div class="container">
-  <div class="main-content">
-    <div class="row">
-    <% @activities.each do |activity| %>
-      <div class="col-xs-12 col-md-6">
-        <div class="card">
-          <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-            <% link_to activities_path(activity) %>
-          </div>
-          <div class="card-footer">
-            <div class="footer-left col-xs-8">
-              <div class="title">
-                <p><%= activity.title %></p>
+  <div class="main-container">
+    <div class="sub-container">
+      <div class="main-content">
+        <div class="row">
+          <% @activities.each do |activity| %>
+          <div class="col-xs-12 col-md-6">
+            <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo.path%>');">
               </div>
-              <div class="city">
-                <p><%= activity.city %></p>
+              <div class="card-footer">
+                <div class="footer-left col-xs-8">
+                  <div class="title">
+                    <p><%= activity.title %></p>
+                  </div>
+                  <div class="city">
+                    <p><%= activity.city %></p>
+                  </div>
+                </div>
+                <div class="footer-right col-xs-4">
+                  <div class="price">
+                    <p><%= activity.pricings[0].amount %>€</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="footer-right col-xs-4">
-              <div class="price">
-                <p>40€</p>
-              </div>
-            </div>
           </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
     </div>
+      <div id="map"></div>
   </div>
-
   <!-- MAP -->
-  <div id="map"></div>
 </div>
 <!-- Gmaps js: building the map -->
 <script>
