@@ -11,7 +11,7 @@
               <div class="card-footer">
                 <div class="footer-left col-xs-8">
                   <div class="title">
-                    <p><%= activity.title %></p>
+                    <p><%= link_to activity.title, activity_path(activity) %></p>
                   </div>
                   <div class="city">
                     <p><%= activity.city %></p>
