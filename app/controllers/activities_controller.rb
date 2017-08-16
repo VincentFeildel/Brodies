@@ -22,6 +22,11 @@ before_action :set_activity, only: [:show]
 
   def show
     # @activity =
+      @activities = [@activity]
+      @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
+      marker.lat activity.latitude
+      marker.lng activity.longitude
+    end
   end
 
   private
