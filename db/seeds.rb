@@ -72,12 +72,12 @@ supplier = User.create(email: Faker::Internet.email, password: "123456", is_supp
 
 a = Activity.new(is_outdoor: true, capacity: 10)
 a.user = supplier
-a.title = 'Kayak 3000'
+a.title = 'Kayak entre broddies'
 a.category = 'Kayak'
-a.address = 'Moulin de Douves, Route de Noisiel'
-a.city = 'Torcy'
-a.zip_code = '77200 '
-a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502869785/kayak_uqknvx.jpg'
+a.address = 'Rue des Deux Ponts'
+a.city = 'Aixe-sur-Vienne'
+a.zip_code = '87700'
+a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502891666/alyssa-moore-304588_t14ms6.jpg'
 a.description = "Découverte des Gorges du Tarn, classées Grand Site de France
 Une aventure accessible a tous : seul, en famille, ou entre amis !
 Bivouacs inoubliables sous tente au bord du Tarn
@@ -94,12 +94,12 @@ supplier = User.create(email: Faker::Internet.email, password: "123456", is_supp
 
 a = Activity.new(is_outdoor: true, capacity: 10)
 a.user = supplier
-a.title = 'Kayak 3000'
+a.title = 'XTREME Kayak'
 a.category = 'Kayak'
-a.address = 'Moulin de Douves, Route de Noisiel'
-a.city = 'Torcy'
-a.zip_code = '77200 '
-a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502869785/kayak_uqknvx.jpg'
+a.address = 'Val Beynet'
+a.city = 'Roche-le-Peyroux'
+a.zip_code = '19160'
+a.photo_url = 'http://res.cloudinary.com/dfoe2be36/image/upload/v1502891665/noah-basle-25979_cyx7bq.jpg'
 a.description = "Découverte des Gorges du Tarn, classées Grand Site de France
 Une aventure accessible a tous : seul, en famille, ou entre amis !
 Bivouacs inoubliables sous tente au bord du Tarn
@@ -108,5 +108,5 @@ Découverte du patrimoine local
 Canoë de forme traditionnelle OLd Town
 Maîtrise des techniques de navigation en canoë"
 a.save
-Pricing.create(description: "Demi-journée, pique-nique inclus", amount: 50, price_type: "par personne", activity_id: a.id)
+Pricing.create(description: "Demi-journée, pique-nique inclus", amount: 60, price_type: "par personne", activity_id: a.id)
 Pricing.create(description: "Deux jours complets avec bivouac le soir", amount: 70, price_type: "par personne", activity_id: a.id)
