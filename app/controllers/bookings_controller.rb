@@ -9,6 +9,8 @@ before_action :set_activity, only: [:new, :create]
   def create
     raise
     @booking = Booking.new(booking_params)
+    @booking.status = "Pending confirmation"
+    @booking.user_id = current_user.id
     if @booking.save
       redirect_to activity_path(@activity)
     else
