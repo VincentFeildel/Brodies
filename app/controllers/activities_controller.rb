@@ -24,11 +24,6 @@ before_action :set_activity, only: [:show]
     # @activity =
   end
 
-
-
-
-
-
   private
   def set_activity
     @activity = Activity.find(params[:id])

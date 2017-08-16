@@ -5,7 +5,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label_method: lambda { |item| "#{item.description}, #{item.amount} euros" }%>
+      <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label_method: lambda { |item| "#{item.description}, #{item.amount} euros" } %>
       <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
     </div>
 
@@ -14,7 +14,19 @@
     </div>
   <% end %>
 
+<%#
+<div id="price"></div>
 
-<p><%= @activity.pricings[0].description %></p>
+<script>
+let price = document.getElementById("price")
+let priceSelected = document.getElementByClassName("booking_pricing")
+let pax = document.getElementById("price-selected")
 
-<p> <%= current_user.email %></p>
+document.addEventListener("click", (event) => {
+  if (event.target === pax) {
+    price.innerText = `${priceSelected.value * pax.value}`;
+  }
+});
+</script>
+
+
