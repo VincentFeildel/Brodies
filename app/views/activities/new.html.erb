@@ -1,0 +1,12 @@
+<%= simple_form_for @restaurant do |f| %>
+    <h3>Name</h3>
+    <%= f.text_field :name %>
+    <h3>Address</h3>
+    <%= f.text_field :address %>
+    <h3>Phone Number</h3>
+    <%= f.text_field :phone_number %>
+    <h3>Restaurant Category</h3>
+    <%= f.input :category, collection: Restaurant::CATEGORIES %>
+    <h3>Submit your restaurant Mofo</h3>
+    <%= f.submit "Create Restaurant" %>
+<% end %>
