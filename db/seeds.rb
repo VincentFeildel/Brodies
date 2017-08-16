@@ -19,7 +19,6 @@
 # Pricing.create(description: "Course de 30min", amount: 40, price_type: "par personne", activity_id: 1)
 # Pricing.create(description: "Course de 1h", amount: 70, price_type: "par personne", activity_id: 1)
 
-
 10.times do
   user = User.create(email: Faker::Internet.email, password: "123456", is_supplier: false)
   supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
