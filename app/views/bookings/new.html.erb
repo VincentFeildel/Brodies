@@ -1,0 +1,20 @@
+<h1> Réserver <%=  @activity.title%></h1>
+
+
+  <%= simple_form_for [@activity, @booking] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label_method: lambda { |item| "#{item.description}, #{item.amount} euros" }%>
+      <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Valider réservation"%>
+    </div>
+  <% end %>
+
+
+<p><%= @activity.pricings[0].description %></p>
+
+<p> <%= current_user.email %></p>
