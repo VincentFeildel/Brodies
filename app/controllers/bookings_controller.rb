@@ -7,7 +7,6 @@ before_action :set_activity, only: [:new, :create]
   end
 
   def create
-    raise
     @booking = Booking.new(booking_params)
     @booking.status = "Pending confirmation"
     @booking.user_id = current_user.id
@@ -21,7 +20,7 @@ before_action :set_activity, only: [:new, :create]
 private
 
   def booking_params
-    params.require(:booking).permit(:pricing, :booking_start, :booking_end, :price, :nb_persons)
+    params.require(:booking).permit(:pricing_id, :booking_start, :booking_end, :price, :nb_persons)
   end
   def set_activity
     @activity = Activity.find(params[:activity_id])
