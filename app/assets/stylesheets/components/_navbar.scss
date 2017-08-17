@@ -81,26 +81,3 @@
   text-align: center !important;
 }
 
-.special-container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: 300px;
-}
-
-@media (min-width: 768px) {
-  .container {
-    width: 350px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 670px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 870px;
-  }
-}
-

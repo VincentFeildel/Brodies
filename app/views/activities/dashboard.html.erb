@@ -33,8 +33,12 @@
   </div>
   <div class="text-center special-container">
     <div class="small-margin-top" > Il n'est jamais trop tard, jetez un coup d'oeil à nos super activités</div>
-      <%= link_to "BOOM", activities_path, class: "btn btn-primary small-margin-top" %>
 
+    <%= form_tag activities_path, method: "get", class: "form-inline" do %>
+    <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
+    <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
+    <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 
 <% else %>
@@ -44,15 +48,14 @@
       <li class="message">
         <%= image_tag("avatar.png", class:"avatar special-avatar")%>
         <div class="message-name">
-          <h3> Res. Date
+          <h3> Date res.
           </h3>
-          <p><%= booking.booking_start.strftime("%B %d, %Y")
- %></p>
+          <p><%= booking.booking_start.strftime("%B %d, %Y") unless booking.booking_start.nil? %></p>
         </div>
         <div class="message-body">
-          <p><strong><%=booking.pricing.activity.title%></strong></p>
+          <p><strong><%= booking.pricing.activity.title %></strong></p>
           <p>
-            <%= booking.pricing.activity.description%>
+            <%= booking.pricing.activity.description %>
           </p>
         </div>
         <div class="message-status">
