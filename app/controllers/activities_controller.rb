@@ -22,6 +22,15 @@ before_action :set_activity, only: [:show]
 
   def dashboard
     @user = current_user
+    if @user.bookings.length == 0
+      @bookings = nil
+    else
+      @bookings = @user.bookings
+    end
+  end
+
+  def dashboard_supplyer
+    @user = current_user
     if @user.activities == ""
       @activities = nil
     else
