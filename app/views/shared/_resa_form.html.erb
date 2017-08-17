@@ -11,12 +11,17 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label_method: lambda { |item| "#{item.description}, #{item.amount} euros" } %>
             <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
+            <div id='resa'>
+              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: 'Choisir la formule', label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, value_method: lambda { |item| item.amount }, class: 'form-actions'%>
+            </div>
+            <div class="price_resa">
+              <h2>Prix total:</h2>
+              <p id="t_price"></p>
+            </div>
           </div>
-
           <div class="form-actions">
-            <%= f.submit "Valider réservation"%>
+            <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
           </div>
         <% end %>
       </div>
@@ -25,3 +30,16 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+  const t_price = document.getElementById('t_price');
+  const resa = document.getElementById("resa");
+  const persons = document.getElementById("booking_nb_persons");
+
+  resa.addEventListener('click', (event) => {
+    v = event.target.value;
+    p = persons.value;
+    price = v * p;
+    t_price.innerText = ` ${price} €`;
+  });
+</script>
