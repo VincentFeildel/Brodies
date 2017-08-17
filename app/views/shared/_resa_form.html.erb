@@ -14,13 +14,14 @@
           <div class="form-inputs">
             <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
             <div id='resa'>
-              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, id_method: lambda { |item| item.amount }%>
+              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}%>
             </div>
+            <%= f.input :price, :as => :hidden, class: 't_price_p' %>
+          </div>
             <div class="price_resa">
               <p><strong>Prix total:</strong></p>
               <p id="t_price"></p>
             </div>
-          </div>
           <div class="form-actions">
             <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
           </div>
@@ -36,16 +37,19 @@
 <!-- Script changement prix -->
 <script>
   const t_price = document.getElementById('t_price');
-  const t_price_p = document.getElementById('t_price_p');
+  const t_price_p = document.getElementsByName('booking[price]')[0];
   const resa = document.getElementById("resa");
   const persons = document.getElementById("booking_nb_persons");
 
   resa.addEventListener('click', (event) => {
-    v = event.target.id;
-    p = persons.value;
-    price = v * p;
-    t_price.innerText = ` ${price} €`;
-    t_price_p.value = price;
+    const v = parseInt(event.target.innerText.match(/\d+/), 10);
+    if (isNaN(v) === false) {
+      const p = persons.value;
+      const price = v * p;
+      t_price.innerText = `${price} €`;
+      t_price_p.value = price;
+      console.log(typeof t_price_p.value)
+    };
   });
 </script>
 
