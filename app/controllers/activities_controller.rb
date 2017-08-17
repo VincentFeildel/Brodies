@@ -21,7 +21,8 @@ before_action :set_activity, only: [:show]
   end
 
   def show
-    # @activity =
+      @pricings = @activity.pricings
+      @booking = Booking.new
       @activities = [@activity]
       @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
       marker.lat activity.latitude
