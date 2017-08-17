@@ -14,7 +14,7 @@
           <div class="form-inputs">
             <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
             <div id='resa'>
-              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, value_method: lambda { |item| item.amount }%>
+              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, id_method: lambda { |item| item.amount }%>
             </div>
             <div class="price_resa">
               <p><strong>Prix total:</strong></p>
@@ -41,7 +41,7 @@
   const persons = document.getElementById("booking_nb_persons");
 
   resa.addEventListener('click', (event) => {
-    v = event.target.value;
+    v = event.target.id;
     p = persons.value;
     price = v * p;
     t_price.innerText = ` ${price} €`;
