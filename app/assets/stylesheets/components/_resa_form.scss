@@ -5,15 +5,13 @@
   margin-bottom: 5px;
 }
 
-.price_resa h2, p {
-  margin: 0px;
-  margin-right: 10px;
-  font-size: 20px;
-  color: $brand-primary;
-}
-
-.modal-body {
-  padding-left: 0px;
+.price_resa {
+   p {
+    margin: 0px;
+    margin-right: 10px;
+    font-size: 25px;
+    color: $brand-primary;
+  }
 }
 
 // Classes du date picker:

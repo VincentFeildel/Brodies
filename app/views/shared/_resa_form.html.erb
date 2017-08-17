@@ -1,12 +1,12 @@
 <!-- modal pour faire la réservation -->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Réserver <%=  @activity.title%></h4>
       </div>
-      <div class="container">
       <div class="modal-body">
         <%= simple_form_for [@activity, @booking] do |f| %>
           <%= f.error_notification %>
@@ -14,10 +14,10 @@
           <div class="form-inputs">
             <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
             <div id='resa'>
-              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, value_method: lambda { |item| item.amount }, class: 'form-actions'%>
+              <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}, value_method: lambda { |item| item.amount }%>
             </div>
             <div class="price_resa">
-              <h2>Prix total:</h2>
+              <p><strong>Prix total:</strong></p>
               <p id="t_price"></p>
             </div>
           </div>
@@ -25,15 +25,7 @@
             <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
           </div>
 
-          <input data-provide="datepicker">
-          <div class="input-group date" data-provide="datepicker">
-            <input type="text" class="form-control">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
-            </div>
-        </div>
         <% end %>
-      </div>
       </div>
       <div class="modal-footer">
       </div>
@@ -44,6 +36,7 @@
 <!-- Script changement prix -->
 <script>
   const t_price = document.getElementById('t_price');
+  const t_price_p = document.getElementById('t_price_p');
   const resa = document.getElementById("resa");
   const persons = document.getElementById("booking_nb_persons");
 
@@ -52,13 +45,19 @@
     p = persons.value;
     price = v * p;
     t_price.innerText = ` ${price} €`;
+    t_price_p.value = price;
   });
 </script>
+
+<!-- Script date picker -->
 
 <% content_for(:after_js) do %>
 <script>
   $( document ).ready(function() {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+      format: 'mm/dd/yyyy',
+      startDate: '-3d'
+      });
   });
 
 </script>
