@@ -24,6 +24,21 @@ before_action :set_activity, only: [:show]
     @activity = Activity.new
   end
 
+  def create
+    @activity = Activity.new(activity_params)
+    if user_signed_in?
+      @activity.user_id = current_user.id
+      if @activity.save
+        # A modifier (rediriger vers la page profil quand elle sera créée)
+        redirect_to activity_path(@activity)
+      else
+        render :new
+      end
+    else
+      redirect_to new_user_registration_path
+    end
+  end
+
   def show
       @pricings = @activity.pricings
       @booking = Booking.new
@@ -38,5 +53,9 @@ before_action :set_activity, only: [:show]
   def set_activity
     @activity = Activity.find(params[:id])
   end
+
+  def activity_params
+      params.require(:activity).permit(:title, :description, :category, :capacity, :address, :city, :zip_code, :photo)
+    end
 
 end
