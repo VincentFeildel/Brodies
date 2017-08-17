@@ -1,3 +1,8 @@
+.container {
+  background: white;
+  margin:0;
+  width: 100%;
+}
 .main-container {
   display: flex;
   align-items: stretch;
@@ -14,16 +19,12 @@
   padding: 0px;
   margin: 0px;
 }
-
-// .card-container {
-//   height: 250px;
-// }
 .card {
   flex: 1 1 auto;
   justify-content: space-around;
   margin: 10px 0;
   border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   background-position: center;
 }
@@ -58,9 +59,10 @@
   padding: 10px;
   height: 70px;
 }
-// .card-footer:hover {
-//   margin-top: -5px;
-// }
+.card-footer-home:hover {
+  margin-top: -5px;
+  transition: 0.2s;
+}
 .footer-left {
   align-self: right;
   padding:0;
