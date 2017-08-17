@@ -39,6 +39,8 @@ before_action :set_activity, only: [:show]
       @activities = nil
     else
       @activities = @user.activities
+    end
+  end
 
   def create
     @activity = Activity.new(activity_params)
@@ -72,6 +74,6 @@ before_action :set_activity, only: [:show]
 
   def activity_params
       params.require(:activity).permit(:title, :description, :category, :capacity, :address, :city, :zip_code, :photo)
-    end
+  end
 
 end
