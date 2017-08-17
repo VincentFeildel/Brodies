@@ -3,21 +3,50 @@
   <div class="banner-content">
     <h1>Bienvenue sur votre terrain de jeu</h1>
     <p>Découvrez les meilleures activités partout en France</p>
-    <div class="padded">
-      <form class="form-inline" action="/activities">
-        <label class="sr-only" for="inlineFormInput">category</label>
-        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="category" id="categoryinput" placeholder="Votre activité">
-        <label class="sr-only" for="inlineFormInput">location</label>
-        <input type="text" name= "city" class="form-control mb-2 mr-sm-2 mb-sm-0" id="addressinput" placeholder="Adresse">
-        <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-      </form>
+    <%= form_tag activities_path, method: "get", class: "form-inline" do %>
+    <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
+    <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
+    <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<div class="container-sample">
+  <div class="row">
+    <div class="sample" id="showcase">
+      <% sample = @activities.sample(3) %>
+      <% sample.each do |activity| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card card-home">
+          <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo.path%>');">
+          </div>
+          <div class="card-footer card-footer-home">
+            <div class="footer-left col-xs-8">
+              <div class="title">
+                <p><%= link_to activity.title, activity_path(activity) %></p>
+              </div>
+              <div class="city">
+                <p><%= activity.city %></p>
+              </div>
+            </div>
+            <div class="footer-right col-xs-4">
+              <div class="price">
+                <p><%= activity.pricings[0].amount %>€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-
-<%# <% simple_form_for @activities do |f|
-<%= f.input :category, collection: Activity::CATEGORY, class: "form-control mb-2 mr-sm-2 mb-sm-0", id: "categoryinput", placeholder: "Votre activité" %>
-<%#= f.input :adress, class: "sr-only"  %>
-<%#= f.submit "Submit", class: "btn btn-primary", id: "btn-submit" %>
-<%# end %>
+<div class="container-supplier">
+  <div class="row">
+    <div class="supplier-message">
+      <h1 id = "home-agenda"> Remplissez votre agenda</h1>
+      <p>Inscrivez gratuitement votre établissement, puis acceptez des réservations quand vous voulez.</p>
+      <p>Soyez tranquille : Nous nous occupons du reste !</p>
+      <button type="button" class="btn btn-primary btn-lg" id="create-activity">Créer mon activité</button>
+    </div>
+  </div>
+</div>
