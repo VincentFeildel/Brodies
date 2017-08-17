@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  get 'activities/dashboard', to: "activities#dashboard"
+
   resources :activities do
     resources :bookings
   end

@@ -6,7 +6,7 @@ User.all.each {|item| item.destroy} if Pricing.all != nil
 
 # Create one user-------------------------------------------------------------
 
-User.create(email: "vincent.feildel@gmail.com", password: "azerty")
+User.create(email: "vincent.feildel@gmail.com", password: "azerty", first_name: "Vincent", last_name:"Feildel")
 
 # ACTIVITE--------------------------------------------------------------------
 supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)

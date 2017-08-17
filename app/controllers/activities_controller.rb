@@ -20,6 +20,15 @@ before_action :set_activity, only: [:show]
     @activity = Activity.new
   end
 
+  def dashboard
+    @user = current_user
+    if @user.activities == ""
+      @activities = nil
+    else
+      @activities = @user.activities
+    end
+  end
+
   def show
       @pricings = @activity.pricings
       @booking = Booking.new
