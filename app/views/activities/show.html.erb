@@ -10,7 +10,7 @@
       <div class="description col-md-6">
         <p><%= @activity.description %></p>
       </div>
-      <div class="price-details col-xs-5 col-xs-offset-1">
+      <div class="price-details col-xs-4 col-xs-offset-2">
         <div class="price-title">
           <h2>Prix moyen</h2>
         </div>
@@ -20,18 +20,17 @@
           <%= @activity.is_outdoor ? "Extérieur" : "Intérieur" %>
         </li>
         <li> <strong>Cond. physique :</strong>  Sportif occasionnel</li>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-primary" id="book" data-toggle="modal" data-target="#myModal">
         Réserver
         </button>
       </div>
     </div>
   </div>
+  <div class="col-md-12">
+    <div id="map-show" style="height: 300px"></div>
+  </div>
 </div>
-<div class="col-md-12">
-  <div id="map-show" style="height: 300px"></div>
-</div>
-</div>
-</div>
+<%= render 'shared/resa_form' %>
 <!-- MAP -->
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>

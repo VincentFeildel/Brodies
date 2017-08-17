@@ -5,13 +5,12 @@
       </a>
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Inscrire mon établissement</a>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+        <a href="" class="btn btn-primary">Inscrire mon établissement</a>
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
             <% if user_signed_in?%>
             <div class="dropdown">
-              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+              <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
               <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Dashboard</a></li>
@@ -19,7 +18,12 @@
               </ul>
             </div>
             <% else %>
-              <%= link_to "Sign-in", new_user_session_path, class: "btn btn-primary"%>
+              <%#= link_to "Sign-in", new_user_session_path, class: "btn btn-primary"%>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign_in_mod">
+                Se connecter
+              </button>
+              <%= render 'shared/sign_in_popup' %>
+
               <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary"%>
             <%end%>
         </div>
