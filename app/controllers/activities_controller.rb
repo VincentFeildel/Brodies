@@ -6,7 +6,7 @@ before_action :set_activity, only: [:show]
 
   def index
     # @activities = Activity.all
-    params[:category] == "" ? @activities = Activity.all : @activities =  Activity.where("category = ?", params[:category])
+    params[:category] == "" ? @activities = Activity.all : @activities =  Activity.where("category = ?", params[:category].capitalize)
     # raise
     @activities = @activities.near(params[:city], 100) if params[:city] != ""
     @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
