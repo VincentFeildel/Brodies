@@ -3,41 +3,34 @@
     <div class="title-activity">
       <h2><%= @activity.title %></h2>
     </div>
-    <div class="main-bloc">
-      <!-- titre -->
-      <!-- photo -->
-      <div class="photos col-md-6">
-        <% if @activity.photo? %>
-        <%= cl_image_tag @activity.photo.path, height: 320, crop: :fill%>
-        <% end %>
-      </div>
-      <div class="price-block col-md-6">
-      <div class="price-details col-md-6 col-md-offset-4">
-      <div class="price-title">
-        <h2>Prix moyen</h2>
-      </div>
-        <li><%= @activity.pricings.first.amount %> euros</li>
-        <li><%=  @activity.category%></li>
-        <li>
-          <%= @activity.is_outdoor ? "outdoor" : "indoor" %>
-        </li>
-        <div class="btn btn-primary" id="book">
-          <%= link_to "Réserver", new_activity_booking_path(@activity) %>
-        </div>
-      </div>
-        <!-- price -->
-      </div>
+    <!-- photo -->
+    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path @activity.photo.path%>');">
     </div>
-    <div class="second-bloc">
-      <!-- description -->
-      <div class="description col-md-8">
+    <div class="main-bloc">
+      <div class="description col-md-6">
         <p><%= @activity.description %></p>
       </div>
-      <div class="col-md-4">
-        <div id="map-show" style="height: 300px"></div>
+      <div class="price-details col-xs-5 col-xs-offset-1">
+        <div class="price-title">
+          <h2>Prix moyen</h2>
+        </div>
+        <li> <strong>Prix :</strong> <%= @activity.pricings.first.amount %> euros</li>
+        <li> <strong>Catégorie : </strong><%=  @activity.category%></li>
+        <li>
+          <%= @activity.is_outdoor ? "Extérieur" : "Intérieur" %>
+        </li>
+        <li> <strong>Cond. physique :</strong>  Sportif occasionnel</li>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Réserver
+        </button>
       </div>
     </div>
   </div>
+</div>
+<div class="col-md-12">
+  <div id="map-show" style="height: 300px"></div>
+</div>
+</div>
 </div>
 <!-- MAP -->
 <% content_for(:after_js) do %>

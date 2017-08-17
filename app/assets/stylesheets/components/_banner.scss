@@ -26,7 +26,6 @@
   border-radius: 2px;
   margin: 20px 0;
 }
-
 #btn-submit {
   border-radius: 3px;
 }
@@ -35,4 +34,8 @@
 }
 #btn-submit {
   padding: 7px 15px;
+}
+.banner-show {
+  height: 50vh;
+  background-size: cover !important;
 }

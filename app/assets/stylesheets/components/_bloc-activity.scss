@@ -2,47 +2,39 @@
   display: flex;
   flex-direction: row;
   border-radius: 4px;
-  justify-content: center;
   padding: 10px;
 }
 .photos {
   margin: 10px;
-  background-color: white;
   padding: 10px;
-}
-.second-bloc {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  margin-right:auto;
 }
 .price-details {
   display: flex;
   flex-direction: column;
-  margin-left: auto;
+  text-align: left;
   background-color: white;
   padding: 10px;
-    font-size: 14px;
+  font-size: 14px;
 }
 .description {
   font-family: "Open Sans", "sans-serif";
-  font-size: 14px;
+  font-size: 16px;
   background-color: white;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 .map-show {
-    background-color: white;
-    padding: 10px;
+  background-color: white;
+  padding: 10px;
 }
 .title-activity {
-  padding: 0px 40px;
+  padding: 0px;
+}
+#book {
+  color: white;
+  margin: 10px 0;
 }
 .price-title {
-  align-self: center;
+  text-align: center;
 }
-.btn-primary {
-  border-radius: 4px;
-  font-color: white;
-}
+
