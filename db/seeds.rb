@@ -1,3 +1,13 @@
+# Reinitialize DB-------------------------------------------------------------
+Booking.all.each {|item| item.destroy} if Booking.all != nil
+Pricing.all.each {|item| item.destroy} if Pricing.all != nil
+Activity.all.each {|item| item.destroy} if Pricing.all != nil
+User.all.each {|item| item.destroy} if Pricing.all != nil
+
+# Create one user-------------------------------------------------------------
+
+User.create(email: "vincent.feildel@gmail.com", password: "azerty")
+
 # ACTIVITE--------------------------------------------------------------------
 supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
 
