@@ -7,7 +7,7 @@
       <%= f.error_notification %>
       <%= f.input :title, label: "Nom de votre activité", placeholder: "Coolos"%>
       <%= f.input :description, as: :text, label: "Description"%>
-      <%= f.input :category, label: "Catégorie" %>
+      <%= f.association :category, label: "Catégorie" %>
       <%= f.input :capacity, label: "Capacité", class: "form-control" %>
       <%= f.input :address, label: "Adresse" %>
       <%= f.input :city, label: "Ville" %>

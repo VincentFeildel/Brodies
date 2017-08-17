@@ -19,7 +19,7 @@
         <div class="card card-home">
           <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo.path%>');">
           </div>
-          <div class="card-footer-home">
+          <div class="card-footer card-footer-home">
             <div class="footer-left col-xs-8">
               <div class="title">
                 <p><%= link_to activity.title, activity_path(activity) %></p>
@@ -46,6 +46,7 @@
       <h1 id = "home-agenda"> Remplissez votre agenda</h1>
       <p>Inscrivez gratuitement votre établissement, puis acceptez des réservations quand vous voulez.</p>
       <p>Soyez tranquille : Nous nous occupons du reste !</p>
+      <button type="button" class="btn btn-primary btn-lg" id="create-activity">Créer mon activité</button>
     </div>
   </div>
 </div>
