@@ -24,6 +24,8 @@
           <div class="form-actions">
             <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
           </div>
+
+          <input data-provide="datepicker">
           <div class="input-group date" data-provide="datepicker">
             <input type="text" class="form-control">
             <div class="input-group-addon">
@@ -52,3 +54,12 @@
     t_price.innerText = ` ${price} €`;
   });
 </script>
+
+<% content_for(:after_js) do %>
+<script>
+  $( document ).ready(function() {
+    $('.datepicker').datepicker();
+  });
+
+</script>
+<% end %>

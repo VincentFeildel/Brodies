@@ -14,6 +14,7 @@ gem 'coffee-rails'
 gem 'figaro'
 # Front:
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
