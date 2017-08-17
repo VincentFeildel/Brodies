@@ -1,0 +1,13 @@
+.price_resa {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.price_resa h2, p {
+  margin: 0px;
+  margin-right: 10px;
+  font-size: 20px;
+  color: $brand-primary;
+}
