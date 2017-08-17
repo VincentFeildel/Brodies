@@ -1,0 +1,73 @@
+<div id="sidebar">
+  <h3>Bienvenu sur votre Dashboard <%=@user.first_name%></h3>
+  <div class="small-margin-top">
+  <%= image_tag("avatar.png", class: "avatar")%>
+  </div>
+  <ul>
+      <li>
+      Prénom: <%=@user.first_name%>
+    </li>
+    <li>
+      Nom:  <%=@user.last_name%>
+    </li>
+      Email:      <%=@user.email%>
+    <li>
+    <li>
+      <div class="btn btn-primary">
+      <%= link_to "Mettre à jour", edit_user_registration_path %>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<% if @bookings == nil %>
+  <div class="special-container">
+    <ul class="inbox">
+      <li class="message">
+        <div><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+        <div class="message-body">
+        <p>Vous n'avez pas encore de réservation</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="text-center special-container">
+    <div class="small-margin-top" > Il n'est jamais trop tard, jetez un coup d'oeil à nos super activités</div>
+
+    <%= form_tag activities_path, method: "get", class: "form-inline" do %>
+    <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
+    <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
+    <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+<% else %>
+  <% @bookings.each do |booking| %>
+  <div class="special-container">
+    <ul class="inbox">
+      <li class="message">
+        <%= image_tag("avatar.png", class:"avatar special-avatar")%>
+        <div class="message-name">
+          <h3> Date res.
+          </h3>
+          <p><%= booking.booking_start.strftime("%B %d, %Y") unless booking.booking_start.nil? %></p>
+        </div>
+        <div class="message-body">
+          <p><strong><%= booking.pricing.activity.title %></strong></p>
+          <p>
+            <%= booking.pricing.activity.description %>
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending"><%=booking.status%></p>
+          <p class="price">€<%=booking.price%></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+<% end %>
+
+
+
+
