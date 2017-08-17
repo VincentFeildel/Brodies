@@ -27,6 +27,10 @@
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   background-position: center;
+  opacity:0.8;
+}
+.card:hover {
+  opacity: 1;
 }
 .card-body {
   height: 180px;
@@ -47,6 +51,9 @@
   z-index:2;
   background: black;
   opacity: 0;
+}
+.card-link .a{
+   text-decoration: none;
 }
 .card-link:hover{
   opacity: 0.1;
@@ -71,6 +78,9 @@
   margin-right: auto;
   font-weight: bold;
   font-size: 14px;
+}
+.title a {
+  text-decoration: none;
 }
 .city {
   font-size: 12px;
