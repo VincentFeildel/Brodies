@@ -5,7 +5,7 @@
       </a>
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <a href="" class="btn btn-primary">Inscrire mon établissement</a>
+        <%= link_to 'Inscrire mon établissement', new_user_registration_path(is_supplier: true), class: "btn btn-primary" %>
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
             <% if user_signed_in?%>
@@ -23,8 +23,6 @@
                 Se connecter
               </button>
               <%= render 'shared/sign_in_popup' %>
-
-              <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary"%>
             <%end%>
         </div>
       </div>
