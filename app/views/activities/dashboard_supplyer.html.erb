@@ -1,0 +1,54 @@
+<p>dashboard_supplyer</p>
+
+<div id="sidebar">
+  <h3>Bienvenu sur votre Dashboard <%=@user.first_name%></h3>
+  <div class="small-margin-top">
+  <%= image_tag("avatar.png", class: "avatar")%>
+  </div>
+  <ul>
+      <li>
+      Prénom: <%=@user.first_name%>
+    </li>
+    <li>
+      Nom:  <%=@user.last_name%>
+    </li>
+      Email:      <%=@user.email%>
+    <li>
+    <li>
+      <div class="btn btn-primary">
+      <%= link_to "Mettre à jour", edit_user_registration_path %>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="container" style="margin-left: 300px">
+
+  <h1>Your messages</h1>
+
+  <div class="tabs">
+    <a href="#" class="tab active">Traveling</a>
+    <a href="#" class="tab">Hosting</a>
+  </div>
+
+  <ul class="inbox">
+    <li class="message">
+      <img src="images/gab.png" alt="" class="avatar-large">
+      <div class="message-name">
+        <h3>Gab Dehan</h3>
+        <p>10/07/17</p>
+      </div>
+      <div class="message-body">
+        <p><strong>I am not sure yet!</strong></p>
+        <p>
+          I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+        </p>
+      </div>
+      <div class="message-status">
+        <p class="status pending">Pending</p>
+        <p class="price">€345</p>
+      </div>
+    </li>
+  </ul>
+
+</div>
