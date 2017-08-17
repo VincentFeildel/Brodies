@@ -3,21 +3,10 @@
   <div class="banner-content">
     <h1>Bienvenue sur votre terrain de jeu</h1>
     <p>Découvrez les meilleures activités partout en France</p>
-    <div class="padded">
-      <form class="form-inline" action="/activities">
-        <label class="sr-only" for="inlineFormInput">category</label>
-        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="category" id="categoryinput" placeholder="Votre activité">
-        <label class="sr-only" for="inlineFormInput">location</label>
-        <input type="text" name= "city" class="form-control mb-2 mr-sm-2 mb-sm-0" id="addressinput" placeholder="Adresse">
-        <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-      </form>
-    </div>
+    <%= form_tag activities_path, method: "get", class: "form-inline" do %>
+      <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
+      <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
+      <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
-
-
-<%# <% simple_form_for @activities do |f|
-<%= f.input :category, collection: Activity::CATEGORY, class: "form-control mb-2 mr-sm-2 mb-sm-0", id: "categoryinput", placeholder: "Votre activité" %>
-<%#= f.input :adress, class: "sr-only"  %>
-<%#= f.submit "Submit", class: "btn btn-primary", id: "btn-submit" %>
-<%# end %>
