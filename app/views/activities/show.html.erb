@@ -40,32 +40,8 @@
   </div>
 </div>
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Réserver <%=  @activity.title%></h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [@activity, @booking] do |f| %>
-          <%= f.error_notification %>
+<%= render 'shared/resa_form' %>
 
-          <div class="form-inputs">
-            <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label_method: lambda { |item| "#{item.description}, #{item.amount} euros" } %>
-            <%= f.input :nb_persons, label: "Nombre de personnes:", collection: 0..@activity.capacity %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.submit "Valider réservation"%>
-          </div>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <!-- MAP -->
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>
