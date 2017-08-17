@@ -8,6 +8,7 @@ before_action :set_activity, only: [:show]
     # @activities = Activity.all
     @activities =  Activity.where("category = ?", params[:category])
     @activities_town =  Activity.where("city = ?", params[:city])
+    raise
     # @activities = Activity.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
       marker.lat activity.latitude
