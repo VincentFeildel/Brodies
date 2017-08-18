@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'activities/dashboard', to: "activities#dashboard"
   get 'activities/dashboard_supplyer', to: "activities#dashboard_supplyer"
+  # get 'activities/new_pricing', to: "activities#new_pricing"
 
   resources :activities do
     resources :bookings
