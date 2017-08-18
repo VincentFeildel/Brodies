@@ -3,10 +3,20 @@
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Réserver <%=  @activity.title%></h4>
-      </div>
+
+      <!-- <div class="modal-header"> -->
+        <div class='box'>
+          <div class='wave -one'></div>
+          <div class='wave -two'></div>
+          <div class='wave -three'></div>
+          <div class='title'>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4>Réserver <%=  @activity.title%></h4>
+          </div>
+        </div>
+
+      <!-- </div> -->
+
       <div class="modal-body">
         <%= simple_form_for [@activity, @booking] do |f| %>
           <%= f.error_notification %>
@@ -22,13 +32,12 @@
               <p><strong>Prix total:</strong></p>
               <p id="t_price"></p>
             </div>
+      </div>
+      <div class="modal-footer">
           <div class="form-actions">
             <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
           </div>
-
         <% end %>
-      </div>
-      <div class="modal-footer">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -66,3 +75,8 @@
 
 </script>
 <% end %>
+
+
+
+
+

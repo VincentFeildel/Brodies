@@ -9,17 +9,17 @@
         <div class="navbar-wagon-item">
             <%if user_signed_in?%>
             <div class="dropdown">
-              <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
-              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <% if current_user.is_supplier == true %>
+              <% if current_user.is_supplier == true %>
+                <%= image_tag("supplier.jpg", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                   <li> <%= link_to "Profil", activities_dashboard_supplyer_path%></li>
                 <% else %>
+                <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                   <li> <%= link_to "Profil", activities_dashboard_path%> </li>
                 <% end %>
-                <li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete%> </li>
-
-              </ul>
+                  <li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete%> </li>
+                </ul>
             </div>
             <% else %>
               <%#= link_to "Sign-in", new_user_session_path, class: "btn btn-primary"%>
