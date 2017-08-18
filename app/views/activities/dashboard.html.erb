@@ -1,5 +1,5 @@
 <div id="sidebar">
-  <h3>Bienvenu sur votre Dashboard <%=@user.first_name%></h3>
+  <p><strong>Votre profil</strong> <%=@user.first_name%></p>
   <div class="small-margin-top">
   <%= image_tag("avatar.png", class: "avatar")%>
   </div>
@@ -32,7 +32,7 @@
     </ul>
   </div>
   <div class="text-center special-container">
-    <div class="small-margin-top" > Il n'est jamais trop tard, jetez un coup d'oeil à nos super activités</div>
+    <div class="small-margin-top" > Découvrez les meilleures activités partout en France !</div>
 
     <%= form_tag activities_path, method: "get", class: "form-inline" do %>
     <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
