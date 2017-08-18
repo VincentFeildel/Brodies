@@ -13,9 +13,9 @@ before_action :set_activity, only: [:new, :create]
       @booking.user_id = current_user.id
       if @booking.save
         # A modifier (rediriger vers la page profil quand elle sera créée)
-        redirect_to activity_path(@activity)
+        redirect_to activities_dashboard_path
       else
-        render :new
+        redirect_to activity_path(@activity)
       end
     else
       redirect_to new_user_registration_path
