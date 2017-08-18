@@ -31,9 +31,10 @@
   </div>
 </div>
 <%= render 'shared/resa_form' %>
+
 <!-- MAP -->
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
+<script>
 $(document).ready(function() {
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: { id: 'map-show' } }, function() {
@@ -47,6 +48,31 @@ handler.getMap().setZoom(14);
 }
 });
 });
-<% end %>
+</script>
+<script>
+  let t_price = document.getElementById('t_price');
+  let t_price_p = document.getElementsByName('booking[price]')[0];
+  let resa = document.getElementById("resa");
+  let persons = document.getElementById("booking_nb_persons");
+
+  resa.addEventListener('click', (event) => {
+    const v = parseInt(event.target.innerText.match(/\d+/), 10);
+    if (isNaN(v) === false) {
+      let p = persons.value;
+      let price = v * p;
+      t_price.innerText = `${price} €`;
+      t_price_p.value = price;
+      console.log(typeof t_price_p.value)
+    };
+  });
+
+$('.datepicker').datepicker( {
+  format: 'dd/mm/yyyy',
+  startDate: '-3d',
+  language: 'fr'
+});
+
+</script>
+
 <% end %>
 <!-- Button trigger modal -->

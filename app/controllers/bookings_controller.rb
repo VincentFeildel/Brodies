@@ -8,6 +8,7 @@ before_action :set_activity, only: [:new, :create]
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.booking_start = DateTime.strptime(params[:booking][:booking_start], "%d/%m/%Y")
     @booking.status = "Pending confirmation"
     if user_signed_in?
       @booking.user_id = current_user.id
