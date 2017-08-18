@@ -11,21 +11,17 @@
             <div class="dropdown">
               <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
               <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <% if current_user.is_supplier == true %>
-                  <li> <%= link_to "Dashboard", activities_dashboard_supplyer_path%></li>
+                                <% if current_user.is_supplier == true %>
+                  <li> <%= link_to "Profile", activities_dashboard_supplyer_path%></li>
                 <% else %>
-                  <li> <%= link_to "Dashboard", activities_dashboard_path%> </li>
+                  <li> <%= link_to "Profile", activities_dashboard_path%> </li>
                 <% end %>
                 <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete%> </li>
-
               </ul>
             </div>
             <% else %>
               <%#= link_to "Sign-in", new_user_session_path, class: "btn btn-primary"%>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign_in_mod">
-                Se connecter
-              </button>
+              <a data-toggle="modal" data-target="#sign_in_mod" href="#"><strong>Se connecter</strong></a>
               <%= render 'shared/sign_in_popup' %>
             <%end%>
         </div>

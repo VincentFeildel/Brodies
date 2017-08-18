@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
   margin-top:0px;
-  // box-shadow: 1px 1px 4px #E6E6E6;
   box-shadow: 1px 1px 4px lightgray;
   z-index: 1;
 }
@@ -76,4 +75,6 @@
 .navbar-wagon .modal-footer {
   text-align: center !important;
 }
-
+.navbar-wagon-item a {
+  text-decoration: underline;
+}
