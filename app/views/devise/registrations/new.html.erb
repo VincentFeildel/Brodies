@@ -1,5 +1,6 @@
 <div class="container">
-<% if params[:is_supplier]%>
+<% cond = params[:is_supplier] %>
+<% if cond%>
   <h2 class= "text-center">Bienvenue</h2>
   <h3 class= "text-center"><i class="fa fa-rocket"></i> Décuplez vos réservations grâce à Broddies <i class="fa fa-rocket"></i></h3>
 <% else %>
@@ -19,10 +20,10 @@
           <%= f.input :password, required: true, placeholder: 'choisissez un mot de passe', label: false %>
           <%= f.input :password_confirmation, label: false, placeholder: 'confirmez le mot de passe', required: true %>
 
-          <% if params[:is_supplier]%>
-            <%= f.input :is_supplier, label: '', input_html: { checked: true, class: 'hidden' } %>
+          <% if cond%>
+            <%= f.input :is_supplier, :as => :hidden, label: false, input_html: { checked: true} %>
             <% else %>
-            <%= f.input :is_supplier, label: '', input_html: { checked: false, class: 'hidden'}  %>
+            <%= f.input :is_supplier, :as => :hidden, label: false, input_html: { checked: false}  %>
           <% end %>
 
           <%= f.button :submit, "Sign up", class: "btn-primary" %>
