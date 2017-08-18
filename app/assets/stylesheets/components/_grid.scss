@@ -1,6 +1,8 @@
+
+
 .cat-intro {
   background-color: white;
-  margin: 0;
+  margin: 40px 0;
 }
 
 .clear:before, .category:before, .clear:after, .category:after {
@@ -31,12 +33,28 @@
     background: white;
     position: relative
 }
-
+.bigger:hover {
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  opacity: 0.95;
+  transition: 0.1s;
+}
+.smaller:hover {
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  opacity: 0.95;
+  transition: 0.1s;
+}
+.bigger:hover a{
+  text-decoration: none;
+  color: #FD5C63;
+}
+.smaller:hover a{
+  text-decoration: none;
+  color: #FD5C63;
+}
 #categories .categories-post-grid .category ul {
     width: 100%;
     float: left
 }
-
 #categories .categories-post-grid .category ul:before,
 #categories .categories-post-grid .category ul:after {
     content: " ";
