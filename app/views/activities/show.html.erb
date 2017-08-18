@@ -1,10 +1,11 @@
 <div class="container container-show">
   <div class="row">
-    <div class="title-activity">
-      <h2><%= @activity.title %></h2>
-    </div>
+
     <!-- photo -->
     <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path @activity.photo.path%>');">
+    </div>
+        <div class="text-center title-activity">
+      <h2><%= @activity.title %></h2>
     </div>
     <div class="main-bloc">
       <div class="description col-md-8">
@@ -55,7 +56,6 @@ handler.getMap().setZoom(14);
   let t_price_p = document.getElementsByName('booking[price]')[0];
   let resa = document.getElementById("resa");
   let persons = document.getElementById("booking_nb_persons");
-
   resa.addEventListener('click', (event) => {
     const v = parseInt(event.target.innerText.match(/\d+/), 10);
     if (isNaN(v) === false) {
@@ -66,13 +66,11 @@ handler.getMap().setZoom(14);
       console.log(typeof t_price_p.value)
     };
   });
-
 $('.datepicker').datepicker( {
   format: 'dd/mm/yyyy',
   startDate: '-3d',
   language: 'fr'
 });
-
 </script>
 
 <% end %>
