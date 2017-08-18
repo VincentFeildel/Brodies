@@ -21,7 +21,7 @@
             <div id='resa'>
               <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}%>
             </div>
-            <%= f.input :booking_start, as: :string, input_html: {class: 'datepicker'} %>
+            <%= f.input :booking_start, label: 'Date:', as: :string, input_html: {class: 'datepicker'} %>
             <%= f.input :price, :as => :hidden, class: 't_price_p' %>
           </div>
             <div class="price_resa">
@@ -31,7 +31,7 @@
       </div>
       <div class="modal-footer">
           <div class="form-actions">
-            <%= f.submit "Valider réservation", class: 'btn btn-primary text-center'%>
+            <%= f.submit "Valider réservation", class: 'btn btn-primary text-center hidebutton'%>
           </div>
         <% end %>
       </div>
