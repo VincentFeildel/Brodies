@@ -28,6 +28,7 @@ before_action :set_activity, only: [:show]
   end
 
   def dashboard
+    @dashboard_no_footer = true
     @user = current_user
     if @user.bookings.length == 0
       @bookings = nil
@@ -37,6 +38,7 @@ before_action :set_activity, only: [:show]
   end
 
   def dashboard_supplyer
+    @dashboard_no_footer = true
     @user = current_user
     if @user.activities == ""
       @activities = nil
