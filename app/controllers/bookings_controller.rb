@@ -23,6 +23,18 @@ before_action :set_activity, only: [:new, :create]
 
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.status == "Pending confirmation"
+      @booking.status = "Validated"
+      @booking.save
+    else
+      @booking.status = "Pending confirmation"
+      @booking.save
+    end
+    redirect_to activities_dashboard_supplyer_path
+  end
+
 private
 
   def booking_params

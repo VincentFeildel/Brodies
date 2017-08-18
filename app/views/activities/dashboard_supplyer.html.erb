@@ -7,13 +7,10 @@
   </div>
   <ul>
       <li>
-      Prénom: <%=@user.first_name%>
+      Company: <%=@activity.title%>
     </li>
     <li>
-      Nom:  <%=@user.last_name%>
-    </li>
       Email:      <%=@user.email%>
-    <li>
     <li>
       <div class="btn btn-primary">
       <%= link_to "Mettre à jour", edit_user_registration_path %>
@@ -22,33 +19,59 @@
   </ul>
 </div>
 
-<div class="container" style="margin-left: 300px">
-
-  <h1>Your messages</h1>
-
-  <div class="tabs">
-    <a href="#" class="tab active">Traveling</a>
-    <a href="#" class="tab">Hosting</a>
+<% if @bookings == nil %>
+  <div class="special-container">
+    <ul class="inbox">
+      <li class="message">
+        <div><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+        <div class="message-body">
+        <p>Vous n'avez pas encore de réservation</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="text-center special-container">
+    <div class="small-margin-top" > Il n'est jamais trop tard, gardez la pêche</div>
   </div>
 
-  <ul class="inbox">
-    <li class="message">
-      <img src="images/gab.png" alt="" class="avatar-large">
-      <div class="message-name">
-        <h3>Gab Dehan</h3>
-        <p>10/07/17</p>
-      </div>
-      <div class="message-body">
-        <p><strong>I am not sure yet!</strong></p>
-        <p>
-          I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-        </p>
-      </div>
-      <div class="message-status">
-        <p class="status pending">Pending</p>
-        <p class="price">€345</p>
-      </div>
-    </li>
-  </ul>
+<% else %>
+  <% @bookings.each do |booking| %>
+  <div class="special-container">
+    <ul class="inbox">
+      <li class="message">
+        <%= image_tag("avatar.png", class:"avatar special-avatar")%>
+        <div class="message-name">
+          <h3> Date res.
+          </h3>
+          <p><%= booking.booking_start.strftime("%B %d, %Y") unless booking.booking_start.nil? %></p>
+        </div>
+        <div class="message-body">
+          <p><strong><%= booking.user.first_name + " " + booking.user.last_name %></strong></p>
+          <p>
+            <%= booking.user.email %>
+          </p>
+          <p>
+            <%= "nb persons " + booking.nb_persons.to_s %>
+          </p>
+        </div>
+        <div class="message-status">
+          <% if booking.status == "Pending confirmation" %>
+            <p class="status pending" style="color:red;""><%=booking.status%></p>
+            <p class="price">€<%=booking.price%></p>
+            <%= link_to "Validate", activity_booking_path(@activity.id, booking.id), method: :patch,class: "btn btn-primary" %>
+          <% else %>
+            <p class="status pending" style="color:green;"><%=booking.status%></p>
+            <p class="price">€<%=booking.price%></p>
+            <%= link_to "Cancel", activity_booking_path(@activity.id, booking.id), method: :patch,class: "btn btn-primary" %>
+          <% end%>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+<% end %>
 
-</div>
+
+
+
+

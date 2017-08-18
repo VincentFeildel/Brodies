@@ -38,10 +38,11 @@ before_action :set_activity, only: [:show]
 
   def dashboard_supplyer
     @user = current_user
-    if @user.activities == ""
-      @activities = nil
+    @activity = @user.activities.first
+    if @activity.bookings == ""
+      @bookings = nil
     else
-      @activities = @user.activities
+      @bookings = @activity.bookings
     end
   end
 
@@ -51,13 +52,24 @@ before_action :set_activity, only: [:show]
       @activity.user_id = current_user.id
       if @activity.save
         # A modifier (rediriger vers la page profil quand elle sera créée)
-        redirect_to activity_path(@activity)
+        redirect_to activities_new_pricing_path(@activity)
+        # redirect_to activity_path(@activity)
       else
         render :new
       end
     else
       redirect_to new_user_registration_path
     end
+  end
+
+  def new_pricing
+    @pricing = Pricing.new
+    @pricing.activity_id = @activity
+    #TODO
+  end
+
+  def create_pricing
+    #TODO
   end
 
   def show

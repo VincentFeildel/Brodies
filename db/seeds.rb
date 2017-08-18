@@ -72,7 +72,7 @@ Une aventure accessible a tous : seul, en famille, ou entre amis !
 Bivouacs inoubliables sous tente au bord du Tarn
 Visite des différents villages le long de la rivière
 Découverte du patrimoine local
-Canoë de forme traditionnelle OLd Town
+Canoë de forme traditionnelle Old Town
 Maîtrise des techniques de navigation en canoë"
 a.save
 Pricing.create(description: "Demi-journée, pique-nique inclus", amount: 50, price_type: "par personne", activity_id: a.id)
@@ -94,14 +94,14 @@ Une aventure accessible a tous : seul, en famille, ou entre amis !
 Bivouacs inoubliables sous tente au bord du Tarn
 Visite des différents villages le long de la rivière
 Découverte du patrimoine local
-Canoë de forme traditionnelle OLd Town
+Canoë de forme traditionnelle Old Town
 Maîtrise des techniques de navigation en canoë"
 a.save
 Pricing.create(description: "Demi-journée, pique-nique inclus", amount: 40, price_type: "par personne", activity_id: a.id)
 Pricing.create(description: "Deux jours complets avec bivouac le soir", amount: 70, price_type: "par personne", activity_id: a.id)
 
 # ACTIVITE--------------------------------------------------------------------
-supplier = User.create(email: Faker::Internet.email, password: "123456", is_supplier: true)
+supplier = User.create(email: "supplier@supplier.com", password: "123456", is_supplier: true)
 
 a = Activity.new(is_outdoor: true, capacity: 10)
 a.user = supplier
@@ -116,7 +116,7 @@ Une aventure accessible a tous : seul, en famille, ou entre amis !
 Bivouacs inoubliables sous tente au bord du Tarn
 Visite des différents villages le long de la rivière
 Découverte du patrimoine local
-Canoë de forme traditionnelle OLd Town
+Canoë de forme traditionnelle Old Town
 Maîtrise des techniques de navigation en canoë"
 a.save
 Pricing.create(description: "Demi-journée, pique-nique inclus", amount: 60, price_type: "par personne", activity_id: a.id)
