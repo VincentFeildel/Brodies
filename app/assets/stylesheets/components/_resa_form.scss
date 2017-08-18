@@ -99,11 +99,12 @@
 }
 
 
-.close {
-  color: white !important;
-  opacity: 1;
-}
-
 .modal-footer {
   text-align: center;
+
+}
+
+.hidebutton {
+  // visibility: hidden;
+  display: none;
 }

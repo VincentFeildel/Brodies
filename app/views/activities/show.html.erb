@@ -63,14 +63,18 @@ handler.getMap().setZoom(14);
       let price = v * p;
       t_price.innerText = `${price} €`;
       t_price_p.value = price;
-      console.log(typeof t_price_p.value)
+      let button = document.getElementsByClassName('hidebutton')[0];
+      button.classList.remove('hidebutton');
+      console.log(button);
     };
   });
+
 $('.datepicker').datepicker( {
   format: 'dd/mm/yyyy',
   startDate: '-3d',
   language: 'fr'
 });
+
 </script>
 
 <% end %>
