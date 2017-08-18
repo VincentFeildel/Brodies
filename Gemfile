@@ -14,7 +14,9 @@ gem 'coffee-rails'
 gem 'figaro'
 # Front:
 gem 'bootstrap-sass'
-gem 'bootstrap-datepicker-rails'
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'

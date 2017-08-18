@@ -79,9 +79,9 @@ before_action :set_activity, only: [:show]
       @booking = Booking.new
       @activities = [@activity]
       @hash = Gmaps4rails.build_markers(@activities) do |activity, marker|
-      marker.lat activity.latitude
-      marker.lng activity.longitude
-    end
+        marker.lat activity.latitude
+        marker.lng activity.longitude
+      end
   end
 
   private

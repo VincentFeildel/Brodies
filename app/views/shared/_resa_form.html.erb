@@ -26,6 +26,7 @@
             <div id='resa'>
               <%= f.association :pricing, as: :radio_buttons, collection: @activity.pricings, label: false, label_method: lambda { |item| "#{item.description}, #{item.amount} euros"}%>
             </div>
+            <%= f.input :booking_start, as: :string, input_html: {class: 'datepicker'} %>
             <%= f.input :price, :as => :hidden, class: 't_price_p' %>
           </div>
             <div class="price_resa">
@@ -44,37 +45,8 @@
 </div><!-- /.modal -->
 
 <!-- Script changement prix -->
-<script>
-  const t_price = document.getElementById('t_price');
-  const t_price_p = document.getElementsByName('booking[price]')[0];
-  const resa = document.getElementById("resa");
-  const persons = document.getElementById("booking_nb_persons");
-
-  resa.addEventListener('click', (event) => {
-    const v = parseInt(event.target.innerText.match(/\d+/), 10);
-    if (isNaN(v) === false) {
-      const p = persons.value;
-      const price = v * p;
-      t_price.innerText = `${price} €`;
-      t_price_p.value = price;
-      console.log(typeof t_price_p.value)
-    };
-  });
-</script>
 
 <!-- Script date picker -->
-
-<% content_for(:after_js) do %>
-<script>
-  $( document ).ready(function() {
-    $('.datepicker').datepicker({
-      format: 'mm/dd/yyyy',
-      startDate: '-3d'
-      });
-  });
-
-</script>
-<% end %>
 
 
 
