@@ -1,52 +1,142 @@
 <!-- banner -->
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "kayak_woman.jpg" %>);">
-  <div class="banner-content">
-    <h1>Bienvenue sur votre terrain de jeu</h1>
-    <p>Découvrez les meilleures activités partout en France</p>
-    <%= form_tag activities_path, method: "get", class: "form-inline" do %>
-    <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
-    <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
-    <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
-    <% end %>
+<div class="wrapper-white">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "verdon-canoe.jpg" %>);">
+    <div class="banner-content">
+      <h1>Bienvenue sur votre terrain de jeu</h1>
+      <p>Les meilleures activités à découvrir entre amis partout en France</p>
+      <%= form_tag activities_path, method: "get", class: "form-inline" do %>
+      <%= text_field_tag :category, "", class: "form-control", placeholder: "Votre activité" %>
+      <%= text_field_tag :city, "", class: "form-control", placeholder: "Adresse" %>
+      <%= submit_tag 'Rechercher', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="container-sample">
-  <div class="row">
-    <div class="sample" id="showcase">
-      <% sample = @activities.sample(3) %>
-      <% sample.each do |activity| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card card-home">
-          <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo.path%>');">
-          </div>
-          <div class="card-footer card-footer-home">
-            <div class="footer-left col-xs-8">
-              <div class="title">
-                <p><%= link_to activity.title, activity_path(activity) %></p>
-              </div>
-              <div class="city">
-                <p><%= activity.city %></p>
-              </div>
+  <div class="container-sample">
+    <div class="row">
+      <p class = "text-center"><strong>+ de 400 activités et séjours sportifs à découvrir</strong></p>
+      <div class="sample" id="showcase">
+        <% sample = @activities.sample(3) %>
+        <% sample.each do |activity| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card card-home">
+            <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo.path%>');">
             </div>
-            <div class="footer-right col-xs-4">
-              <div class="price">
-                <p><%= activity.pricings[0].amount %>€</p>
+            <div class="card-footer card-footer-home">
+              <div class="footer-left col-xs-8">
+                <div class="title">
+                  <p><%= link_to activity.title, activity_path(activity) %></p>
+                </div>
+                <div class="city">
+                  <p><%= activity.city %></p>
+                </div>
+              </div>
+              <div class="footer-right col-xs-4">
+                <div class="price">
+                  <p><%= activity.pricings[0].amount %>€/pers.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-</div>
-<div class="container-supplier">
-  <div class="row">
-    <div class="supplier-message">
-      <h1 id = "home-agenda"> Remplissez votre agenda</h1>
-      <p>Inscrivez gratuitement votre établissement, puis acceptez des réservations quand vous voulez.</p>
-      <p>Soyez tranquille : Nous nous occupons du reste !</p>
-      <button type="button" class="btn btn-primary btn-lg" id="create-activity">Créer mon activité</button>
+  <div class="cat-intro">
+    <p class = "text-center"><strong>Activités séléctionnées pour vous</strong></p>
+  </div>
+  <div class="grid-container">
+    <div id="categories">
+      <div class="category-post-container clear">
+        <div class="categories-post-grid">
+          <div class="category" id="category-nature">
+            <div class="category-post-container root-category clear">
+              <ul>
+                <li class="bigger" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "hiking.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://CaroleTidball.exposure.co/egypt"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://CaroleTidball.exposure.co/egypt">RANDOS</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "kayak_woman.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://cee.exposure.co/rome"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://cee.exposure.co/rome">KAYAK</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "karting.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://tapetv.exposure.co/the-smashing-pumpkins"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://tapetv.exposure.co/the-smashing-pumpkins">KARTING</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "parachute.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://mtthwnvk.exposure.co/halfway-between"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://mtthwnvk.exposure.co/halfway-between">PARACHUTE</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "survie.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://mtthwnvk.exposure.co/halfway-between"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://mtthwnvk.exposure.co/halfway-between">SURVIE</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "chute-libre.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://cee.exposure.co/rome"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://cee.exposure.co/rome">CHUTE LIBRE</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path "mongolfière.jpg" %>);">
+                  <div class="post-meta">
+                    <a class="square-link-cover" href="https://cee.exposure.co/rome"></a>
+                    <div class="post-titles">
+                      <h4 style="z-index: 1;">
+                      <a href="https://cee.exposure.co/rome">MONGOLFIÈRE</a>
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-supplier">
+    <div class="row">
+      <div class="supplier-message">
+        <h2 id = "home-agenda">Inscrire mon établissement</h2>
+        <p>Inscrivez gratuitement votre établissement, puis acceptez des réservations quand vous le voulez.</p>
+        <p>Reposez-vous : Nous nous occupons du reste !</p>
+                <%= link_to 'Poster mon activité', new_user_registration_path(is_supplier: true), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,32 +1,31 @@
-    <div class="navbar-wagon">
+<div class="navbar-wagon">
       <!-- Logo -->
       <a href="/" class="navbar-wagon-brand">
-        <img src="<%= image_path "logo_black.png" %>" alt="logo_black">
+        <img src="<%= image_path "logo_red.png" %>" alt="logo_red">
       </a>
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
-            <%if user_signed_in?%>
+            <% if user_signed_in?%>
             <div class="dropdown">
-              <% if current_user.is_supplier == true %>
-                <%= image_tag("supplier.jpg", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
-                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                  <li> <%= link_to "Profil", activities_dashboard_supplyer_path%></li>
+              <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <% if current_user.is_supplier == true %>
+                  <li> <%= link_to "Dashboard", activities_dashboard_supplyer_path%></li>
                 <% else %>
-                <%= image_tag("avatar.png", class: "avatar dropdown-toggle", id: 'navbar-wagon-menu', 'data-toggle' => 'dropdown') %>
-                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                  <li> <%= link_to "Profil", activities_dashboard_path%> </li>
+                  <li> <%= link_to "Dashboard", activities_dashboard_path%> </li>
                 <% end %>
-                  <li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete%> </li>
-                </ul>
+                <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete%> </li>
+
+              </ul>
             </div>
             <% else %>
               <%#= link_to "Sign-in", new_user_session_path, class: "btn btn-primary"%>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign_in_mod">
                 Se connecter
               </button>
-              <%= link_to 'Inscrire mon établissement', new_user_registration_path(is_supplier: true), class: "btn btn-primary" %>
               <%= render 'shared/sign_in_popup' %>
             <%end%>
         </div>

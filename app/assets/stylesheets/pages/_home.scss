@@ -1,13 +1,21 @@
 // Specific CSS for your home-page
+.wrapper-white {
+  background-color: white;
+  margin: 0;
+}
 .container-sample {
   background: white;
-  padding: 80px;
+  padding: 50px;
+  box-shadow: gray;
 }
 .container-supplier {
-  background-color: #EDF0F0;
+  background-color: white;
+  // #EDF0F0
   padding: 40px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
 }
 #showcase {
+  margin-top: 20px;
   background-color: white;
 }
 .card-home {
@@ -15,11 +23,18 @@
 }
 .supplier-message {
   text-align: center;
-  margin: 80px 40px;
+  margin: 40px 40px;
 }
 #home-agenda {
   margin-bottom: 50px;
 }
 #create-activity {
   margin-top: 30px;
+}
+.btn-primary {
+  border-radius: 3px;
+  opacity: 1;
+}
+.btn-primary:hover {
+  opacity: 0.6;
 }
