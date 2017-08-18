@@ -1,9 +1,10 @@
-    <div class="navbar-wagon">
+<div class="navbar-wagon">
       <!-- Logo -->
       <a href="/" class="navbar-wagon-brand">
-        <img src="<%= image_path "logo_red.png" %>" alt="logo">
+        <img src="<%= image_path "logo_red.png" %>" alt="logo_red">
       </a>
       <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
             <% if user_signed_in?%>
@@ -17,6 +18,7 @@
                   <li> <%= link_to "Dashboard", activities_dashboard_path%> </li>
                 <% end %>
                 <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete%> </li>
+
               </ul>
             </div>
             <% else %>
